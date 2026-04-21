@@ -1,0 +1,54 @@
+<div class="chat-flotante">
+  <!-- Botón flotante -->
+  <button class="btn-flotante" (click)="toggleChat()" [class.abierto]="abierto">
+    <span *ngIf="!abierto">🤖</span>
+    <span *ngIf="abierto">✕</span>
+  </button>
+
+  <!-- Ventana del chat -->
+  <div class="chat-ventana" *ngIf="abierto">
+    <div class="chat-header">
+      <span>🤖</span>
+      <div>
+        <h3>Asistente GamerDiary</h3>
+        <p>Experto en setups gaming</p>
+      </div>
+    </div>
+
+    <div class="chat-mensajes">
+      <div *ngIf="mensajes.length === 0" class="empty">
+        👋 ¡Hola! Pregúntame sobre setups, periféricos o iluminación gamer.
+      </div>
+
+      <div *ngIf="!auth.isLoggedIn()" class="no-auth">
+        🔒 Inicia sesión para usar el asistente IA.
+      </div>
+
+      <div *ngFor="let msg of mensajes" class="grupo-mensaje">
+        <div class="mensaje usuario">
+          <div class="burbuja">{{ msg.mensaje }}</div>
+        </div>
+        <div class="mensaje ia" *ngIf="msg.respuesta_ia">
+          <div class="burbuja">{{ msg.respuesta_ia }}</div>
+        </div>
+        <div class="mensaje ia" *ngIf="!msg.respuesta_ia">
+          <div class="burbuja cargando">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input" *ngIf="auth.isLoggedIn()">
+      <textarea
+        [(ngModel)]="inputMensaje"
+        (keydown)="onKeyPress($event)"
+        placeholder="Escribe tu pregunta..."
+        rows="2">
+      </textarea>
+      <button (click)="enviar()" [disabled]="cargando || !inputMensaje.trim()">
+        {{ cargando ? '...' : '➤' }}
+      </button>
+    </div>
+  </div>
+</div>

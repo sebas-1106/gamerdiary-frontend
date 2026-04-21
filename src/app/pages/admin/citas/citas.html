@@ -1,0 +1,44 @@
+<div class="admin-citas">
+  <h2>📅 Gestión de Citas</h2>
+
+  <div *ngIf="mensaje" class="success-msg">{{ mensaje }}</div>
+
+  <div class="tabla-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuario</th>
+          <th>Servicio</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Estado</th>
+          <th>Observaciones</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <td>#{{ cita.id }}</td>
+          <td>{{ cita.usuario?.nombre || 'N/A' }}</td>
+          <td>{{ cita.servicio?.nombre_servicio || 'N/A' }}</td>
+          <td>{{ cita.fecha_cita }}</td>
+          <td>{{ cita.hora_cita }}</td>
+          <td>
+            <select [(ngModel)]="cita.estado" (change)="cambiarEstado(cita.id, cita.estado)" class="select-estado" [class]="cita.estado">
+              <option value="pendiente">Pendiente</option>
+              <option value="confirmada">Confirmada</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+          </td>
+          <td>{{ cita.observaciones || '-' }}</td>
+          <td>
+            <button class="btn-eliminar" (click)="eliminarCita(cita.id)">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="citas.length === 0" class="empty">No hay citas registradas.</div>
+</div>

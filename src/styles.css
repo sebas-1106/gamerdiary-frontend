@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Paleta GamerDiary */
+  --primary: #E91E8C;
+  --primary-dark: #C4176F;
+  --secondary: #FF1A1A;
+  --gradient: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  --gradient-glow: linear-gradient(135deg, #E91E8C88, #FF1A1A88);
+
+  /* Modo oscuro (default) */
+  --bg: #000000;
+  --bg-card: #0d0d0d;
+  --bg-input: #111111;
+  --border: #1a1a1a;
+  --border-hover: #E91E8C;
+  --text: #ffffff;
+  --text-muted: #888888;
+  --text-secondary: #cccccc;
+  --navbar-bg: rgba(0,0,0,0.95);
+  --shadow: 0 0 20px rgba(233, 30, 140, 0.3);
+  --shadow-red: 0 0 20px rgba(255, 26, 26, 0.3);
+}
+
+[data-theme="light"] {
+  --bg: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-input: #f0f0f0;
+  --border: #e0e0e0;
+  --border-hover: #E91E8C;
+  --text: #111111;
+  --text-muted: #666666;
+  --text-secondary: #333333;
+  --navbar-bg: rgba(255,255,255,0.95);
+  --shadow: 0 0 20px rgba(233, 30, 140, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* Botones globales */
+.btn-primary {
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(233, 30, 140, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+/* Inputs globales */
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(233, 30, 140, 0.2);
+}
+
+/* Cards globales */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+
+/* Texto gradiente */
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect */
+.glow {
+  text-shadow: 0 0 20px rgba(233, 30, 140, 0.8);
+}
+
+/* Success/Error messages */
+.success-msg {
+  background: rgba(233, 30, 140, 0.1);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.error-msg {
+  background: rgba(255, 26, 26, 0.1);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-input) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  height: 320px;
+}
+
+.skeleton-img {
+  height: 200px;
+  width: 100%;
+}
+
+.skeleton-line {
+  height: 14px;
+  margin: 12px 16px;
+}
+
+.skeleton-line.short { width: 40%; }
+.skeleton-line.medium { width: 70%; }
+.skeleton-line.long { width: 90%; }

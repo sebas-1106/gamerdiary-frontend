@@ -1,0 +1,214 @@
+.citas-container {
+  padding: 3rem 2rem;
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-nueva {
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(233,30,140,0.3);
+}
+
+.btn-nueva:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(233,30,140,0.5);
+}
+
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--primary);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 30px rgba(233,30,140,0.1);
+}
+
+.form-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.form-group { margin-bottom: 1.2rem; }
+
+label {
+  display: block;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(233,30,140,0.2);
+}
+
+textarea { height: 80px; resize: vertical; }
+
+.btn-confirmar {
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(233,30,140,0.3);
+}
+
+.btn-confirmar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(233,30,140,0.5);
+}
+
+.citas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cita-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.cita-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(233,30,140,0.15);
+}
+
+.cita-info h3 {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.cita-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+}
+
+.cita-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.estado {
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+
+.estado.pendiente { background: rgba(255,165,0,0.1); color: #FFA500; border: 1px solid #FFA500; }
+.estado.confirmada { background: rgba(233,30,140,0.1); color: var(--primary); border: 1px solid var(--primary); }
+.estado.cancelada { background: rgba(255,26,26,0.1); color: var(--secondary); border: 1px solid var(--secondary); }
+
+.btn-eliminar {
+  background: transparent;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.btn-eliminar:hover {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.success-msg {
+  background: rgba(233,30,140,0.1);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 3rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+}
+.skeleton-cita {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

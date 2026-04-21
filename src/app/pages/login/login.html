@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="LogoGamerdiary.png" alt="GamerDiary" class="login-logo-img" />
+    </div>
+    <h2>Iniciar Sesión</h2>
+    <p class="subtitle">Bienvenido de vuelta</p>
+
+    <div *ngIf="error" class="error-msg">{{ error }}</div>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="tu@email.com" required />
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="••••••" required />
+      </div>
+      <button type="submit" class="btn-login">Entrar</button>
+    </form>
+
+    <p class="register-link">¿No tienes cuenta? <a routerLink="/register">Regístrate</a></p>
+  </div>
+</div>

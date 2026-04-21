@@ -1,0 +1,199 @@
+.admin-servicios .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.admin-servicios h2 {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.5rem;
+}
+
+.btn-nuevo {
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(233,30,140,0.3);
+}
+
+.btn-nuevo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(233,30,140,0.5);
+}
+
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--primary);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 30px rgba(233,30,140,0.1);
+}
+
+.form-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group.full { grid-column: 1 / -1; }
+
+label {
+  display: block;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+input, textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(233,30,140,0.2);
+}
+
+.form-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+
+.btn-guardar {
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-guardar:hover { box-shadow: 0 0 20px rgba(233,30,140,0.4); }
+
+.btn-cancelar {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover { border-color: var(--text-muted); color: var(--text); }
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.servicio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.servicio-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(233,30,140,0.15);
+  transform: translateY(-4px);
+}
+
+.servicio-card img { width: 100%; height: 150px; object-fit: cover; }
+.card-body { padding: 1rem; }
+.categoria {
+  font-size: 0.75rem;
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.card-body h3 { color: var(--text); margin: 0.4rem 0; font-size: 0.95rem; font-family: 'Rajdhani', sans-serif; font-weight: 700; }
+.card-body p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.precio {
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+}
+
+.card-actions { display: flex; gap: 0.5rem; }
+
+.btn-editar, .btn-eliminar {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-eliminar { border-color: var(--secondary); color: var(--secondary); }
+.btn-eliminar:hover { background: var(--secondary); color: #fff; }
+.btn-editar:hover { border-color: var(--primary); color: var(--primary); }
+
+.success-msg {
+  background: rgba(233,30,140,0.1);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+}

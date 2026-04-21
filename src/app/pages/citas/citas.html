@@ -1,0 +1,56 @@
+<div class="citas-container">
+  <div class="header">
+    <h1>Mis Citas</h1>
+    <button class="btn-nueva" (click)="showForm = !showForm">+ Nueva Cita</button>
+  </div>
+
+  <div *ngIf="mensaje" class="success-msg">{{ mensaje }}</div>
+
+  <div class="form-card" *ngIf="showForm">
+    <h3>Reservar nueva cita</h3>
+    <div class="form-group">
+      <label>Servicio</label>
+      <select [(ngModel)]="nueva.servicio_id" name="servicio_id">
+        <option value="">Selecciona un servicio</option>
+        <option *ngFor="let s of servicios" [value]="s.id">{{ s.nombre_servicio }} — {{ s.precio }}€</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Fecha</label>
+      <input type="date" [(ngModel)]="nueva.fecha_cita" name="fecha_cita" />
+    </div>
+    <div class="form-group">
+      <label>Hora</label>
+      <input type="time" [(ngModel)]="nueva.hora_cita" name="hora_cita" />
+    </div>
+    <div class="form-group">
+      <label>Observaciones</label>
+      <textarea [(ngModel)]="nueva.observaciones" name="observaciones" placeholder="Cualquier detalle adicional..."></textarea>
+    </div>
+    <button class="btn-confirmar" (click)="crearCita()">Confirmar Reserva</button>
+  </div>
+
+  <!-- Skeleton -->
+  <div class="citas-lista" *ngIf="cargando">
+    <div class="skeleton-cita" *ngFor="let i of [1,2,3]">
+      <div class="skeleton skeleton-line medium"></div>
+      <div class="skeleton skeleton-line short"></div>
+    </div>
+  </div>
+
+  <div *ngIf="!cargando && citas.length === 0 && !showForm" class="empty">No tienes citas reservadas aún.</div>
+
+  <div class="citas-lista" *ngIf="!cargando">
+    <div class="cita-card" *ngFor="let cita of citas">
+      <div class="cita-info">
+        <h3>{{ cita.servicio?.nombre_servicio }}</h3>
+        <p>📅 {{ cita.fecha_cita }} a las {{ cita.hora_cita }}</p>
+        <p *ngIf="cita.observaciones">💬 {{ cita.observaciones }}</p>
+      </div>
+      <div class="cita-actions">
+        <span class="estado" [class]="cita.estado">{{ cita.estado }}</span>
+        <button class="btn-eliminar" (click)="eliminarCita(cita.id)">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

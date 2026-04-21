@@ -1,0 +1,56 @@
+<div class="admin-servicios">
+  <div class="header">
+    <h2>🛠️ Gestión de Servicios</h2>
+    <button class="btn-nuevo" (click)="nuevo()">+ Nuevo Servicio</button>
+  </div>
+
+  <div *ngIf="mensaje" class="success-msg">{{ mensaje }}</div>
+
+  <div class="form-card" *ngIf="showForm">
+    <h3>{{ editando ? 'Editar Servicio' : 'Nuevo Servicio' }}</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="form.nombre_servicio" />
+      </div>
+      <div class="form-group">
+        <label>Categoría</label>
+        <input type="text" [(ngModel)]="form.categoria" />
+      </div>
+      <div class="form-group">
+        <label>Precio (€)</label>
+        <input type="number" [(ngModel)]="form.precio" />
+      </div>
+      <div class="form-group">
+        <label>URL Imagen</label>
+        <input type="text" [(ngModel)]="form.imagen_url" />
+      </div>
+      <div class="form-group full">
+        <label>Descripción</label>
+        <textarea [(ngModel)]="form.descripcion" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-guardar" (click)="guardar()">💾 Guardar</button>
+      <button class="btn-cancelar" (click)="showForm = false">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="servicios-grid">
+    <div class="servicio-card" *ngFor="let s of servicios">
+      <img *ngIf="s.imagen_url" [src]="s.imagen_url" [alt]="s.nombre_servicio" />
+      <div class="card-body">
+        <span class="categoria">{{ s.categoria }}</span>
+        <h3>{{ s.nombre_servicio }}</h3>
+        <p>{{ s.descripcion }}</p>
+        <div class="card-footer">
+          <span class="precio">{{ s.precio }}€</span>
+          <div class="card-actions">
+            <button class="btn-editar" (click)="editar(s)">✏️</button>
+            <button class="btn-eliminar" (click)="eliminar(s.id)">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

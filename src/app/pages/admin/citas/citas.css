@@ -1,0 +1,91 @@
+.admin-citas h2 {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.tabla-wrapper { overflow-x: auto; border-radius: 12px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background: linear-gradient(135deg, rgba(233,30,140,0.2), rgba(255,26,26,0.2));
+  color: var(--primary);
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--primary);
+}
+
+td {
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+tr:hover td { background: rgba(233,30,140,0.05); }
+tr:last-child td { border-bottom: none; }
+
+.select-estado {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.3rem 0.5rem;
+  font-size: 0.85rem;
+  font-family: 'Rajdhani', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-estado:focus { outline: none; }
+.select-estado.pendiente { border-color: #FFA500; color: #FFA500; }
+.select-estado.confirmada { border-color: var(--primary); color: var(--primary); }
+.select-estado.cancelada { border-color: var(--secondary); color: var(--secondary); }
+
+.btn-eliminar {
+  background: transparent;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-eliminar:hover {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.success-msg {
+  background: rgba(233,30,140,0.1);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 3rem;
+  font-family: 'Rajdhani', sans-serif;
+}

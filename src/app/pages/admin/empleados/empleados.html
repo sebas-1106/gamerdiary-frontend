@@ -1,0 +1,77 @@
+<div class="admin-empleados">
+  <div class="header">
+    <h2>👷 Gestión de Empleados</h2>
+    <button class="btn-nuevo" (click)="nuevo()">+ Nuevo Empleado</button>
+  </div>
+
+  <div *ngIf="mensaje" class="success-msg">{{ mensaje }}</div>
+
+  <div class="form-card" *ngIf="showForm">
+    <h3>{{ editando ? 'Editar Empleado' : 'Nuevo Empleado' }}</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="form.nombre" />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="form.email" />
+      </div>
+      <div class="form-group" *ngIf="!editando">
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="form.password" />
+      </div>
+      <div class="form-group">
+        <label>DNI</label>
+        <input type="text" [(ngModel)]="form.dni" />
+      </div>
+      <div class="form-group">
+        <label>Especialidad</label>
+        <input type="text" [(ngModel)]="form.especialidad" />
+      </div>
+      <div class="form-group">
+        <label>Rol</label>
+        <select [(ngModel)]="form.rol">
+          <option value="tecnico">Técnico</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="editando">
+        <label>Disponibilidad</label>
+        <select [(ngModel)]="form.disponibilidad">
+          <option [ngValue]="true">Disponible</option>
+          <option [ngValue]="false">No disponible</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-guardar" (click)="guardar()">💾 Guardar</button>
+      <button class="btn-cancelar" (click)="showForm = false">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="empleados-grid">
+    
+    <div class="empleado-card" *ngFor="let emp of empleados">
+      <div class="emp-avatar">👤</div>
+      <div class="emp-info">
+        <h3>{{ emp.usuario?.nombre }}</h3>
+        <p>{{ emp.especialidad }}</p>
+        <p class="email">{{ emp.usuario?.email }}</p>
+        <p class="dni">DNI: {{ emp.dni }}</p>
+        <div class="emp-footer">
+          <span class="rol" [class]="emp.usuario?.rol">{{ emp.usuario?.rol }}</span>
+          <span class="disponibilidad" [class.disponible]="emp.disponibilidad" [class.no-disponible]="!emp.disponibilidad">
+            {{ emp.disponibilidad ? '✅ Disponible' : '❌ No disponible' }}
+          </span>
+        </div>
+      </div>
+      <div class="emp-actions">
+        <button class="btn-editar" (click)="editar(emp)">✏️</button>
+        <button class="btn-eliminar" (click)="eliminar(emp.empleado_id)">🗑️</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="empleados.length === 0" class="empty">No hay empleados registrados.</div>
+</div>
