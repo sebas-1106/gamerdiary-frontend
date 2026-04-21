@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://gamerdiary-backend-production.up.railway.app'
+  production: false,
+  apiUrl: 'http://localhost:8000/api'
 };
