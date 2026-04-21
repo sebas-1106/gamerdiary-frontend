@@ -6,9 +6,10 @@
   <div class="nav-links">
     <a routerLink="/catalogo" routerLinkActive="active">Catálogo</a>
     <a routerLink="/citas" routerLinkActive="active" *ngIf="auth.isLoggedIn()">Mis Citas</a>
+    <a routerLink="/inspiracion" routerLinkActive="active">🎨 Inspiración</a>
     <a routerLink="/admin" routerLinkActive="active" *ngIf="auth.isAdmin()">⚙️ Admin</a>
-    <a routerLink="/login" routerLinkActive="active" *ngIf="!auth.isLoggedIn()">Login</a>
-    <a routerLink="/register" routerLinkActive="active" *ngIf="!auth.isLoggedIn()">Registro</a>
+    <a routerLink="/login" *ngIf="!auth.isLoggedIn()">Login</a>
+    <a routerLink="/register" *ngIf="!auth.isLoggedIn()">Registro</a>
     <button class="theme-toggle" (click)="toggleTheme()" [title]="isDark ? 'Modo claro' : 'Modo oscuro'">
       {{ isDark ? '☀️' : '🌙' }}
     </button>

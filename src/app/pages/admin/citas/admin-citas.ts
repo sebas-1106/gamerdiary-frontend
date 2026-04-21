@@ -28,15 +28,16 @@ export class AdminCitasComponent implements OnInit {
       }
     });  }
 
-  cambiarEstado(id: number, estado: string) {
-    this.citaService.actualizarCita(id, { estado }).subscribe({
-      next: () => {
-        this.mensaje = 'Estado actualizado correctamente';
-        this.cargarCitas();
-        setTimeout(() => this.mensaje = '', 3000);
-      }
-    });
-  }
+    cambiarEstado(id: number, estado: string) {
+      this.citaService.actualizarCita(id, { estado }).subscribe({
+        next: () => {
+          this.mensaje = 'Estado actualizado correctamente';
+          this.cargarCitas();
+          setTimeout(() => this.mensaje = '', 3000);
+        },
+        error: (err) => console.log('Error:', err)
+      });
+    }
 
   eliminarCita(id: number) {
     if (confirm('¿Seguro que quieres eliminar esta cita?')) {

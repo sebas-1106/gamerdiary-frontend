@@ -24,7 +24,6 @@ export class AdminEmpleadosComponent implements OnInit {
   cargarEmpleados() {
   this.empleadoService.getEmpleados().subscribe({
     next: (data: any) => {
-      console.log('Empleados:', data);
       this.empleados = data;
       this.cdr.detectChanges();
     },
@@ -39,19 +38,20 @@ export class AdminEmpleadosComponent implements OnInit {
   }
 
   editar(emp: any) {
-    this.form = {
-      id: emp.empleado_id,
-      nombre: emp.usuario?.nombre,
-      email: emp.usuario?.email,
-      password: '',
-      dni: emp.dni,
-      especialidad: emp.especialidad,
-      rol: emp.usuario?.rol,
-      disponibilidad: emp.disponibilidad
-    };
-    this.editando = true;
-    this.showForm = true;
-  }
+  console.log('Empleado a editar:', emp);
+  this.form = {
+    id: emp.id,
+    nombre: emp.usuario?.nombre,
+    email: emp.usuario?.email,
+    password: '',
+    dni: emp.dni,
+    especialidad: emp.especialidad,
+    rol: emp.usuario?.rol,
+    disponibilidad: emp.disponibilidad
+  };
+  this.editando = true;
+  this.showForm = true;
+}
 
   guardar() {
     if (this.editando) {

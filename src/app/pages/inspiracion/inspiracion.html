@@ -1,0 +1,21 @@
+<div class="inspiracion-container">
+  <div class="inspiracion-header">
+    <h1>🎮 Inspiración Gamer</h1>
+    <p>Descubre setups increíbles para diseñar tu espacio perfecto</p>
+  </div>
+
+  <div class="masonry-grid">
+    <div class="foto-card" *ngFor="let foto of fotos">
+      <img [src]="foto.urls.regular" [alt]="foto.alt_description || 'Gaming setup'" loading="lazy" />
+      <div class="foto-overlay">
+        <p *ngIf="foto.alt_description">{{ foto.alt_description }}</p>
+        <span class="foto-autor">📸 {{ foto.user.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading-indicator" *ngIf="cargando">
+    <div class="spinner"></div>
+    <p>Cargando más inspiración...</p>
+  </div>
+</div>

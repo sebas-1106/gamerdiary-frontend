@@ -10,6 +10,7 @@ import { AdminLayoutComponent } from './components/admin-layout/admin-layout';
 import { AdminCitasComponent } from './pages/admin/citas/admin-citas';
 import { AdminServiciosComponent } from './pages/admin/servicios/admin-servicios';
 import { AdminEmpleadosComponent } from './pages/admin/empleados/admin-empleados';
+import { InspiracionComponent } from './pages/inspiracion/inspiracion';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,5 +29,6 @@ export const routes: Routes = [
       { path: 'empleados', component: AdminEmpleadosComponent },
     ]
   },
+  { path: 'inspiracion', component: InspiracionComponent },
   { path: '**', redirectTo: '' }
 ];

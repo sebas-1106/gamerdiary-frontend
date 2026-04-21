@@ -18,6 +18,7 @@ showForm = false;
 cargando = true;
 nueva = { servicio_id: '', fecha_cita: '', hora_cita: '', observaciones: '' };
 mensaje = '';
+hoy = new Date().toISOString().split('T')[0];
 
 constructor(private citaService: CitaService, private servicioService: ServicioService, private cdr: ChangeDetectorRef) {}
 

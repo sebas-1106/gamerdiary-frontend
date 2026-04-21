@@ -13,8 +13,11 @@ export class CitaService {
   ) {}
 
   private headers() {
-    return new HttpHeaders({ Authorization: `Bearer ${this.auth.getToken()}` });
-  }
+  return new HttpHeaders({ 
+    Authorization: `Bearer ${this.auth.getToken()}`,
+    'Content-Type': 'application/json'
+  });
+}
 
   getCitas() {
     return this.http.get(`${this.apiUrl}/citas`, { headers: this.headers() });
