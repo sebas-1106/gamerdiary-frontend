@@ -76,8 +76,15 @@ export class AdminEmpleadosComponent implements OnInit {
   }
 
   eliminar(id: number) {
-    if (confirm('¿Seguro que quieres eliminar este empleado?')) {
-      this.empleadoService.eliminarEmpleado(id).subscribe(() => this.cargarEmpleados());
-    }
+  if (confirm('¿Seguro quieres eliminar este empleado?')) {
+    this.empleadoService.eliminarEmpleado(id).subscribe({
+      next: () => {
+        console.log('Eliminado con éxito');
+        this.cargarEmpleados();
+      },
+      error: (err) => console.error('Error al eliminar:', err) // <-- Esto te dirá la verdad
+    });
+  }
+
 }
 }

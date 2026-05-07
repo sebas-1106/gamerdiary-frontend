@@ -24,4 +24,9 @@ export class LoginComponent {
       error: () => this.error = 'Credenciales incorrectas'
     });
   }
+  limpiarSesion() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('usuario');
+  window.location.reload();
+}
 }

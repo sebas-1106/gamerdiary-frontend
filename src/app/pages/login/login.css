@@ -163,3 +163,13 @@ input:focus {
   text-decoration: none;
   font-weight: 700;
 }
+.clear-link {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.clear-link:hover { color: var(--primary); }

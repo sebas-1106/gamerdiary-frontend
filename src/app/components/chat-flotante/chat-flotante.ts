@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from '../../services/chat';
@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './chat-flotante.html',
-  styleUrl: './chat-flotante.css',
+  styleUrl: './chat-flotante.css'
 })
 export class ChatFlotanteComponent implements OnInit {
   abierto = false;
@@ -18,21 +18,25 @@ export class ChatFlotanteComponent implements OnInit {
   cargando = false;
 
   constructor(
-    private chatService: ChatService,
+    private chatService: ChatService, 
     public auth: AuthService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {}
 
-toggleChat() {
-  this.abierto = !this.abierto;
-  if (this.abierto && this.mensajes.length === 0 && this.auth.isLoggedIn()) {
-    this.chatService.getHistorial().subscribe({
-      next: (data: any) => this.mensajes = data,
-      error: () => {}
-    });
+  toggleChat() {
+    this.abierto = !this.abierto;
+    if (this.abierto && this.mensajes.length === 0 && this.auth.isLoggedIn()) {
+      this.chatService.getHistorial().subscribe({
+        next: (data: any) => {
+          this.mensajes = data;
+          this.cdr.detectChanges();
+        },
+        error: () => {}
+      });
+    }
   }
-}
 
   enviar() {
     if (!this.inputMensaje.trim() || this.cargando || !this.auth.isLoggedIn()) return;
@@ -42,19 +46,21 @@ toggleChat() {
     this.cargando = true;
 
     this.mensajes.push({ mensaje, respuesta_ia: null });
+    this.cdr.detectChanges();
     this.scrollAbajo();
 
     this.chatService.enviarMensaje(mensaje).subscribe({
       next: (res: any) => {
         this.mensajes[this.mensajes.length - 1].respuesta_ia = res.respuesta_ia;
         this.cargando = false;
+        this.cdr.detectChanges();
         this.scrollAbajo();
       },
       error: () => {
-        this.mensajes[this.mensajes.length - 1].respuesta_ia =
-          'Error al conectar con el asistente.';
+        this.mensajes[this.mensajes.length - 1].respuesta_ia = 'Error al conectar con el asistente.';
         this.cargando = false;
-      },
+        this.cdr.detectChanges();
+      }
     });
   }
 
@@ -69,6 +75,7 @@ toggleChat() {
     setTimeout(() => {
       const container = document.querySelector('.chat-mensajes');
       if (container) container.scrollTop = container.scrollHeight;
+      this.cdr.detectChanges();
     }, 100);
   }
 }

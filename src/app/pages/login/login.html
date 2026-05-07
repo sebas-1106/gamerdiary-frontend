@@ -18,6 +18,8 @@
         <input type="password" [(ngModel)]="password" name="password" placeholder="••••••" required />
       </div>
       <button type="submit" class="btn-login">Entrar</button>
+      <p class="clear-link" (click)="limpiarSesion()">¿Problemas para entrar? Click aquí</p>
+
     </form>
 
     <p class="register-link">¿No tienes cuenta? <a routerLink="/register">Regístrate</a></p>
