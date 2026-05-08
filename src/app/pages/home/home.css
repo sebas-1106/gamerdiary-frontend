@@ -160,3 +160,35 @@
   color: var(--text-muted);
   line-height: 1.6;
 }
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .features {
+    padding: 2rem 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    gap: 1rem;
+  }
+
+  .btn-hero-primary, .btn-hero-secondary {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
