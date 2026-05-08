@@ -81,3 +81,64 @@
   color: var(--text);
   overflow-y: auto;
 }
+.btn-hamburger-admin {
+  display: none;
+  background: linear-gradient(135deg, #E91E8C, #FF1A1A);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+  }
+
+  .btn-hamburger-admin {
+    display: block;
+    position: fixed;
+    top: 70px;
+    left: 1rem;
+    z-index: 999;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    padding-top: 5rem;
+  }
+
+  .admin-sidebar.open {
+    left: 0;
+    box-shadow: 4px 0 30px rgba(0,0,0,0.5);
+  }
+
+  .admin-content {
+    padding: 1rem;
+    margin-top: 3rem;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+
+  .overlay.open {
+    display: block;
+  }
+}

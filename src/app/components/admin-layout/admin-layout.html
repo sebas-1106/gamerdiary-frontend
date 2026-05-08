@@ -1,13 +1,17 @@
+<button class="btn-hamburger-admin" (click)="toggleSidebar()">☰</button>
+<div class="overlay" [class.open]="sidebarOpen" (click)="closeSidebar()"></div>
+
 <div class="admin-container">
-  <aside class="admin-sidebar">
+  <aside class="admin-sidebar" [class.open]="sidebarOpen">
     <h2>⚙️ Panel Admin</h2>
-    <nav>
-      <a routerLink="/admin/citas" routerLinkActive="active">📅 Gestión de Citas</a>
-      <a routerLink="/admin/servicios" routerLinkActive="active">🛠️ Gestión de Servicios</a>
-      <a routerLink="/admin/empleados" routerLinkActive="active">👷 Gestión de Empleados</a>
+    <nav (click)="closeSidebar()">
+      <a routerLink="/admin/citas" routerLinkActive="active">🗓️ Gestión de Citas</a>
+      <a routerLink="/admin/servicios" routerLinkActive="active">🔧 Gestión de Servicios</a>
+      <a routerLink="/admin/empleados" routerLinkActive="active">👤 Gestión de Empleados</a>
       <a routerLink="/" class="btn-volver">← Volver al inicio</a>
     </nav>
   </aside>
+
   <main class="admin-content">
     <router-outlet></router-outlet>
   </main>
