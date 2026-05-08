@@ -3,16 +3,22 @@
     <img src="LogoGamerdiary.png" alt="GamerDiary" class="logo-img" />
   </a>
 
-  <div class="nav-links">
+  <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" [class.open]="menuOpen" (click)="closeMenu()">
     <a routerLink="/catalogo" routerLinkActive="active">Catálogo</a>
     <a routerLink="/citas" routerLinkActive="active" *ngIf="auth.isLoggedIn()">Mis Citas</a>
     <a routerLink="/inspiracion" routerLinkActive="active">🎨 Inspiración</a>
     <a routerLink="/admin" routerLinkActive="active" *ngIf="auth.isAdmin()">⚙️ Admin</a>
     <a routerLink="/login" *ngIf="!auth.isLoggedIn()">Login</a>
     <a routerLink="/register" *ngIf="!auth.isLoggedIn()">Registro</a>
-    <button class="theme-toggle" (click)="toggleTheme()" [title]="isDark ? 'Modo claro' : 'Modo oscuro'">
+    <button class="theme-toggle" (click)="toggleTheme(); $event.stopPropagation()" [title]="isDark ? 'Modo claro' : 'Modo oscuro'">
       {{ isDark ? '☀️' : '🌙' }}
     </button>
-    <button class="btn-logout" *ngIf="auth.isLoggedIn()" (click)="logout()">Salir</button>
+    <button class="btn-logout" *ngIf="auth.isLoggedIn()" (click)="logout(); $event.stopPropagation()">Salir</button>
   </div>
 </nav>
