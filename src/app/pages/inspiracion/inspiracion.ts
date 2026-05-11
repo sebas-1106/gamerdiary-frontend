@@ -13,7 +13,7 @@ export class InspiracionComponent implements OnInit {
   cargando = false;
   pagina = 1;
   readonly accessKey = 'JauoQHCDcvtuqO4TVDlNd5EGKw2sy27sau_UXAH11Ik';
-  readonly keywords = ['gaming setup', 'Perifericos gaming', 'Escritorio gamer', 'Silla gamer', 'PC gamer'];
+  readonly keywords = ['gaming setup', 'Escritorio gamer', 'Silla gamer', 'PC gamer'];
   keywordActual = 0;
 
   constructor(private cdr: ChangeDetectorRef) {}
